@@ -15,6 +15,7 @@ export class OrmFarmerRepository implements IFarmerRepository {
         private readonly ormRepository: Repository<FarmerOrmEntity>,
     ) { }
 
+
     async save(farmer: Farmer): Promise<void> {
         const ormEntity = FarmerMapper.toOrm(farmer);
 
@@ -22,9 +23,20 @@ export class OrmFarmerRepository implements IFarmerRepository {
     }
 
     async findByDocument(document: Document): Promise<Farmer | null> {
-
         const ormEntity = await this.ormRepository.findOneBy({
             document: document.getValue(),
+        });
+
+        if (!ormEntity) {
+            return null
+        }
+
+        return FarmerMapper.toDomain(ormEntity);
+    }
+
+    async findById(id: string): Promise<Farmer | null> {
+        const ormEntity = await this.ormRepository.findOneBy({
+            id
         });
 
         if (!ormEntity) {

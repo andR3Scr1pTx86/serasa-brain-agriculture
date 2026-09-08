@@ -7,15 +7,15 @@ import { FARMER_REPOSITORY_TOKEN } from "./domain/repositories/farmer.repository
 import { OrmFarmerRepository } from "./infraestructure/database/repositories/farmer-orm.repository.js";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([FarmerOrmEntity])],
-  controllers: [FarmerController],
-  providers: [
-    CreateFarmerUseCase,
-    {
-      provide: FARMER_REPOSITORY_TOKEN,
-      useClass: OrmFarmerRepository,
-    },
-  ],
-  exports: [CreateFarmerUseCase],
+    imports: [TypeOrmModule.forFeature([FarmerOrmEntity])],
+    controllers: [FarmerController],
+    providers: [
+        CreateFarmerUseCase,
+        {
+            provide: FARMER_REPOSITORY_TOKEN,
+            useClass: OrmFarmerRepository,
+        },
+    ],
+    exports: [CreateFarmerUseCase, FARMER_REPOSITORY_TOKEN],
 })
-export class FarmersModule {}
+export class FarmersModule { }

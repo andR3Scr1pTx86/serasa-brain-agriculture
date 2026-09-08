@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { FarmerOrmEntity } from './modules/farmers/infraestructure/database/entities/farmer-orm.entity.js';
 import { FarmersModule } from './modules/farmers/farmers.module.js';
+import { FarmsModule } from './modules/farms/farms.module.js';
+import { FarmOrmEntity } from './modules/farms/infraestructure/database/entities/farm-orm.entity.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -31,11 +33,12 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
         password: configService.get('DATABASE_PASSWORD'),
         database: configService.get('DATABASE_DATABASE'),
         synchronize: configService.get('NODE_ENV') !== 'prod',
-        entities: [FarmerOrmEntity]
+        entities: [FarmerOrmEntity, FarmOrmEntity]
       }),
       inject: [ConfigService]
     }),
     FarmersModule,
+    FarmsModule
   ]
 })
 export class AppModule { }
