@@ -12,6 +12,7 @@ export class FarmerMapper {
         orm.document = domain.getDocument().getValue();
         orm.createdAt = domain.getCreatedAt();
         orm.updatedAt = domain.getUpdatedAt();
+        orm.deletedAt = domain.getDeletedAt();
 
         return orm;
     }
@@ -23,6 +24,7 @@ export class FarmerMapper {
             document: Document.create(orm.document),
             createdAt: orm.createdAt,
             updatedAt: orm.updatedAt,
+            deletedAt: orm.deletedAt,
         });
     }
 

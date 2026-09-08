@@ -5,6 +5,7 @@ export interface IFarmerRepository {
     save(farmer: Farmer): Promise<void>
     findByDocument(document: Document): Promise<Farmer | null>
     findById(id: string): Promise<Farmer | null>
+    delete(id: string): Promise<void>
 }
 
 export const FARMER_REPOSITORY_TOKEN = Symbol('IFarmerRepository')

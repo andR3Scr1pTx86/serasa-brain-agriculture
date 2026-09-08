@@ -45,4 +45,8 @@ export class OrmFarmerRepository implements IFarmerRepository {
 
         return FarmerMapper.toDomain(ormEntity);
     }
+
+    async delete(id: string): Promise<void> {
+        await this.ormRepository.softDelete(id);
+    }
 }
