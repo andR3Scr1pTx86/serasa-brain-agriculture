@@ -8,6 +8,8 @@ import { FarmerOrmEntity } from './modules/farmers/infraestructure/database/enti
 import { FarmersModule } from './modules/farmers/farmers.module.js';
 import { FarmsModule } from './modules/farms/farms.module.js';
 import { FarmOrmEntity } from './modules/farms/infraestructure/database/entities/farm-orm.entity.js';
+import { CropsModule } from './modules/crops/crops.module.js';
+import { CropOrmEntity } from './modules/crops/infraestructure/database/entities/crop-orm.entity.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -33,12 +35,13 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
         password: configService.get('DATABASE_PASSWORD'),
         database: configService.get('DATABASE_DATABASE'),
         synchronize: configService.get('NODE_ENV') !== 'prod',
-        entities: [FarmerOrmEntity, FarmOrmEntity]
+        entities: [FarmerOrmEntity, FarmOrmEntity, CropOrmEntity]
       }),
       inject: [ConfigService]
     }),
     FarmersModule,
-    FarmsModule
+    FarmsModule,
+    CropsModule
   ]
 })
 export class AppModule { }
