@@ -8,15 +8,15 @@ export class Document {
     }
 
     public static create(document: string): Document {
-        if (!this.validate(document)) {
-            throw new Error(`Invalid document: ${document}`);
+        if (cpf.isValid(document)) {
+            return new Document(cpf.strip(document));
         }
 
-        return new Document(document);
-    }
+        if (cnpj.isValid(document)) {
+            return new Document(cnpj.strip(document));
+        }
 
-    private static validate(document: string): boolean {
-        return cpf.isValid(document) || cnpj.isValid(document)
+        throw new Error(`Invalid document: ${document}`);
     }
 
     public getValue(): string {
