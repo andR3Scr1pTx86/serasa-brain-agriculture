@@ -1,4 +1,4 @@
-import { Farm } from "../entities/farm.entity.js";
+import { Farm } from '../entities/farm.entity.js';
 
 export interface IFarmRepository {
   save(farm: Farm): Promise<void>;

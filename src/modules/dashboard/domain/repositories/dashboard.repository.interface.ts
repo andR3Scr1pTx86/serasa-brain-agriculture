@@ -1,4 +1,4 @@
-import { DashboardSummaryOutputDto } from "../../application/dtos/dashboard-summary.dto.js";
+import { DashboardSummaryOutputDto } from '../../application/dtos/dashboard-summary.dto.js';
 
 export interface IDashboardRepository {
   getSummary(): Promise<DashboardSummaryOutputDto>;

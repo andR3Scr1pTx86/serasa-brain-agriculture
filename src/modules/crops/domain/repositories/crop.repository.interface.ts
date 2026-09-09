@@ -1,4 +1,4 @@
-import { Crop } from "../entities/crop.entity.js";
+import { Crop } from '../entities/crop.entity.js';
 
 export interface ICropRepository {
   save(crop: Crop): Promise<void>;

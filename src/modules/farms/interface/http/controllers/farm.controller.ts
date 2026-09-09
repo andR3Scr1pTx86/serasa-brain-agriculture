@@ -1,6 +1,6 @@
-import { Body, Controller, Post } from "@nestjs/common";
-import { CreateFarmRequestDto } from "../dtos/create-farm-request.dto.js";
-import { CreateFarmUseCase } from "../../../application/use-cases/create-farm.use-case.js";
+import { Body, Controller, Post } from '@nestjs/common';
+import { CreateFarmRequestDto } from '../dtos/create-farm-request.dto.js';
+import { CreateFarmUseCase } from '../../../application/use-cases/create-farm.use-case.js';
 
 @Controller('farms')
 export class FarmController {

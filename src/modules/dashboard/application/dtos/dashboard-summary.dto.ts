@@ -9,8 +9,8 @@ export interface CropDistribution {
 }
 
 export interface LandUseDistribution {
-  agriculturalArea: number; 
-  vegetationArea: number;   
+  agriculturalArea: number;
+  vegetationArea: number;
 }
 
 export interface DashboardSummaryOutputDto {
