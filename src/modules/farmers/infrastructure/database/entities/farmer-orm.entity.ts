@@ -3,8 +3,7 @@ import {
   Column,
   PrimaryColumn,
   CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
+  UpdateDateColumn
 } from 'typeorm';
 
 @Entity('farmers')
