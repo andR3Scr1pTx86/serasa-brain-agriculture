@@ -7,7 +7,7 @@ import { Crop } from "../../../domain/entities/crop.entity.js";
 import { CropMapper } from "../mappers/crop.mapper.js";
 
 @Injectable()
-export class TypeOrmCropRepository implements ICropRepository {
+export class CropOrmRepository implements ICropRepository {
     constructor(
         @InjectRepository(CropOrmEntity)
         private readonly ormRepository: Repository<CropOrmEntity>,

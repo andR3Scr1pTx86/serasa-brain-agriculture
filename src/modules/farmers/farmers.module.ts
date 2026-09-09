@@ -4,7 +4,7 @@ import { FarmerOrmEntity } from "./infraestructure/database/entities/farmer-orm.
 import { FarmerController } from "./interface/http/controllers/farmer.controller.js";
 import { CreateFarmerUseCase } from "./application/use-cases/create-farmer.use-case.js";
 import { FARMER_REPOSITORY_TOKEN } from "./domain/repositories/farmer.repository.interface.js";
-import { OrmFarmerRepository } from "./infraestructure/database/repositories/farmer-orm.repository.js";
+import { FarmerOrmRepository } from "./infraestructure/database/repositories/farmer-orm.repository.js";
 import { UpdateFarmerUseCase } from "./application/use-cases/update-farmer.use-case.js";
 import { DeleteFarmerUseCase } from "./application/use-cases/delete-farmer.use-case.js";
 
@@ -17,7 +17,7 @@ import { DeleteFarmerUseCase } from "./application/use-cases/delete-farmer.use-c
         DeleteFarmerUseCase,
         {
             provide: FARMER_REPOSITORY_TOKEN,
-            useClass: OrmFarmerRepository,
+            useClass: FarmerOrmRepository,
         },
     ],
     exports: [

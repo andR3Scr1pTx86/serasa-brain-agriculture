@@ -4,7 +4,7 @@ import { FarmsModule } from "../farms/farms.module.js";
 import { CropController } from "./interface/http/controllers/crop.controller.js";
 import { CreateCropUseCase } from "./application/use-cases/create-crop.use-case.js";
 import { CROP_REPOSITORY_TOKEN } from "./domain/repositories/crop.repository.interface.js";
-import { TypeOrmCropRepository } from "./infraestructure/database/repositories/crop-orm.repository.js";
+import { CropOrmRepository } from "./infraestructure/database/repositories/crop-orm.repository.js";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
 @Module({
@@ -17,7 +17,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
         CreateCropUseCase,
         {
             provide: CROP_REPOSITORY_TOKEN,
-            useClass: TypeOrmCropRepository,
+            useClass: CropOrmRepository,
         },
     ],
     exports: [CreateCropUseCase, CROP_REPOSITORY_TOKEN],

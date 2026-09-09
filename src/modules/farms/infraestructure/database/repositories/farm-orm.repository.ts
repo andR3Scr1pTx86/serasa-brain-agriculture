@@ -7,7 +7,7 @@ import { Farm } from "../../../domain/entities/farm.entity.js";
 import { FarmMapper } from "../mappers/farm.mapper.js";
 
 @Injectable()
-export class OrmFarmRepository implements IFarmRepository {
+export class FarmOrmRepository implements IFarmRepository {
 
     constructor(
         @InjectRepository(FarmOrmEntity)

@@ -8,7 +8,7 @@ import { Farmer } from "../../../domain/entities/farmer.entity.js";
 import { FarmerMapper } from "../mappers/farmer.mapper.js";
 
 @Injectable()
-export class OrmFarmerRepository implements IFarmerRepository {
+export class FarmerOrmRepository implements IFarmerRepository {
 
     constructor(
         @InjectRepository(FarmerOrmEntity)

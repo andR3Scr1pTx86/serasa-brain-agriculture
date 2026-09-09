@@ -10,6 +10,7 @@ import { FarmsModule } from './modules/farms/farms.module.js';
 import { FarmOrmEntity } from './modules/farms/infraestructure/database/entities/farm-orm.entity.js';
 import { CropsModule } from './modules/crops/crops.module.js';
 import { CropOrmEntity } from './modules/crops/infraestructure/database/entities/crop-orm.entity.js';
+import { DashboardModule } from './modules/dashboard/dashboard.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -41,7 +42,8 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     }),
     FarmersModule,
     FarmsModule,
-    CropsModule
+    CropsModule,
+    DashboardModule
   ]
 })
 export class AppModule { }
