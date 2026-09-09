@@ -2,7 +2,7 @@ import { DomainError } from './domain.error.js';
 
 export class EntityNotFoundError extends DomainError {
   constructor(entityName: string) {
-    super(`${entityName} not found`);
+    super(entityName);
   }
 }
 

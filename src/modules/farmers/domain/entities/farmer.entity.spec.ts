@@ -24,7 +24,6 @@ describe('Farmer Entity', () => {
             expect(farmer.getDocument()).toBe(doc);
             expect(farmer.getCreatedAt()).toBeInstanceOf(Date);
             expect(farmer.getUpdatedAt()).toBeInstanceOf(Date);
-            expect(farmer.getDeletedAt()).toBeNull();
         });
     });
 
@@ -40,15 +39,13 @@ describe('Farmer Entity', () => {
                 name: 'Samus',
                 document: doc,
                 createdAt: fixedDate,
-                updatedAt: fixedDate,
-                deletedAt: null,
+                updatedAt: fixedDate
             });
 
             expect(farmer.getId()).toBe(fixedId);
             expect(farmer.getName()).toBe('Samus');
             expect(farmer.getCreatedAt()).toEqual(fixedDate);
             expect(farmer.getUpdatedAt()).toEqual(fixedDate);
-            expect(farmer.getDeletedAt()).toBeNull();
         });
     });
 
@@ -90,31 +87,6 @@ describe('Farmer Entity', () => {
             farmer.updateDocument(newDoc);
 
             expect(farmer.getDocument().getValue()).toBe('71855442035');
-        });
-    });
-
-    describe('delete', () => {
-        it('should set deletedAt and refresh updatedAt on soft delete', () => {
-            const farmer = Farmer.create({
-                name: 'Lecus',
-                document: createMockDocument('27664361036'),
-            });
-
-            farmer.delete();
-
-            expect(farmer.getDeletedAt()).toBeInstanceOf(Date);
-            expect(farmer.getDeletedAt()).not.toBeNull();
-        });
-
-        it('should throw an error if farmer is already deleted', () => {
-            const farmer = Farmer.create({
-                name: 'Lecus',
-                document: createMockDocument('27664361036'),
-            });
-
-            farmer.delete();
-
-            expect(() => farmer.delete()).toThrow('Farmer is already deleted');
         });
     });
 });

@@ -24,7 +24,7 @@ describe('FarmerOrmRepository (Integration)', () => {
     await clearDatabase();
   });
 
-  it('should save a new farmer into PostgreSQL and find it by id', async () => {
+  it('should save a new farmer into database and find it by id', async () => {
     const farmer = Farmer.create({
       name: 'Lyafo',
       document: Document.create('269.914.900-40'),
@@ -56,7 +56,7 @@ describe('FarmerOrmRepository (Integration)', () => {
     expect(foundFarmer?.getId()).toBe(farmer.getId());
   });
 
-  it('should perform soft delete when delete method is called', async () => {
+  it('should delete when delete method is called', async () => {
     const farmer = Farmer.create({
       name: 'Lyafo',
       document: Document.create('269.914.900-40'),

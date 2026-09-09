@@ -8,7 +8,6 @@ export interface FarmerProps {
   document: Document;
   createdAt?: Date;
   updatedAt?: Date;
-  deletedAt?: Date | null;
 }
 
 export type RestoreFarmerProps = Omit<
@@ -18,7 +17,6 @@ export type RestoreFarmerProps = Omit<
   id: string;
   createdAt: Date;
   updatedAt: Date;
-  deletedAt?: Date | null;
 };
 
 export class Farmer {
@@ -27,7 +25,6 @@ export class Farmer {
   private document: Document;
   private readonly createdAt: Date;
   private updatedAt: Date;
-  private deletedAt?: Date | null;
 
   private constructor(props: FarmerProps) {
     this.id = props.id ?? uuiv4();
@@ -35,7 +32,6 @@ export class Farmer {
     this.document = props.document;
     this.createdAt = props.createdAt ?? new Date();
     this.updatedAt = props.updatedAt ?? new Date();
-    this.deletedAt = props.deletedAt ?? null;
   }
 
   public static create(
@@ -63,11 +59,6 @@ export class Farmer {
   }
 
   public delete(): void {
-    if (this.deletedAt) {
-      throw new Error('Farmer is already deleted');
-    }
-
-    this.deletedAt = new Date();
     this.updatedAt = new Date();
   }
 
@@ -89,9 +80,5 @@ export class Farmer {
 
   public getUpdatedAt(): Date {
     return this.updatedAt;
-  }
-
-  public getDeletedAt(): Date | null | undefined {
-    return this.deletedAt;
   }
 }

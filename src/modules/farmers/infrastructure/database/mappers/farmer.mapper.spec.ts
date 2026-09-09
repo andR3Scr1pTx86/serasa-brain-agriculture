@@ -27,7 +27,6 @@ describe('FarmerMapper', () => {
             expect(ormEntity.document).toBe(cleanCpf);
             expect(ormEntity.createdAt).toEqual(farmerDomain.getCreatedAt());
             expect(ormEntity.updatedAt).toEqual(farmerDomain.getUpdatedAt());
-            expect(ormEntity.deletedAt).toBeNull();
         });
     });
 
@@ -42,7 +41,6 @@ describe('FarmerMapper', () => {
             ormEntity.document = cleanCpf;
             ormEntity.createdAt = now;
             ormEntity.updatedAt = now;
-            ormEntity.deletedAt = null;
 
             const farmerDomain = FarmerMapper.toDomain(ormEntity);
 
@@ -54,7 +52,6 @@ describe('FarmerMapper', () => {
             expect(farmerDomain.getDocument().getValue()).toBe(cleanCpf);
             expect(farmerDomain.getCreatedAt()).toEqual(now);
             expect(farmerDomain.getUpdatedAt()).toEqual(now);
-            expect(farmerDomain.getDeletedAt()).toBeNull();
         });
     });
 });

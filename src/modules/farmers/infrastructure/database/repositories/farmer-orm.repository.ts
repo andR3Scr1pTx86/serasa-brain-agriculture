@@ -45,6 +45,6 @@ export class FarmerOrmRepository implements IFarmerRepository {
   }
 
   async delete(id: string): Promise<void> {
-    await this.ormRepository.softDelete(id);
+    await this.ormRepository.delete(id);
   }
 }
