@@ -53,7 +53,7 @@ export class Farmer {
       throw new Error('Name cannot be empty');
     }
 
-    this.name = newName.trim();
+    this.name = newName;
     this.updatedAt = new Date();
   }
 

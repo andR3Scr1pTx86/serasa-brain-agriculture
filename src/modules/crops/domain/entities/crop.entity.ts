@@ -20,8 +20,8 @@ export class Crop {
   private constructor(props: CropProps) {
     this.id = props.id ?? uuiv4();
     this.farmId = props.farmId;
-    this.cropYear = props.cropYear.trim();
-    this.plantedCrop = props.plantedCrop.trim();
+    this.cropYear = props.cropYear;
+    this.plantedCrop = props.plantedCrop;
     this.createdAt = props.createdAt ?? new Date();
     this.updatedAt = props.updatedAt ?? new Date();
   }

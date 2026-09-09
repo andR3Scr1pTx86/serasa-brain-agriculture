@@ -1,8 +1,6 @@
 import {
-  ConflictException,
   Inject,
-  Injectable,
-  NotFoundException,
+  Injectable
 } from '@nestjs/common';
 import {
   FARMER_REPOSITORY_TOKEN,
@@ -31,7 +29,7 @@ export class UpdateFarmerUseCase {
     if (!farmer) {
       throw new EntityNotFoundError('Farmer not found');
     }
-
+  
     if (input.name) {
       farmer.updateName(input.name);
     }
