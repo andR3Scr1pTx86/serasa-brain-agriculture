@@ -16,6 +16,10 @@ Este projeto foi desenvolvido em **NestJS** para gerenciar o cadastro de produto
 
 Siga as etapas abaixo para configurar e executar a aplicação localmente.
 
+##### !!! Importante !!!
+
+Quando executar o comando do orquestrador, se o comando `docker compose` não funcionar, utilize `docker-compose`.
+
 #### Clone o repositório
 
 ```bash
@@ -23,12 +27,9 @@ $ git clone git@github.com:andR3Scr1pTx86/serasa-brain-agriculture.git
 ```
 #### Execute o comando do orquestrador
 
+
 ```bash
 $ docker compose -f docker-compose.yml up -d
-
-# Se o comando acima não funcionar, tente usar:
-
-$ docker-compose -f docker-compose.yml up -d
 ```
 
 #### A aplicação já estará em execução!!!
@@ -43,6 +44,10 @@ Neste ponto, ele deve rodar normalmente na sua máquina.
 
 ```bash
 $ npm run test:unit
+
+# Se caso for rodar dentro do container, utilize:
+
+$ docker compose exec serasa_brain_agriculture npm run test:unit
 ```
 
 #### Testes de Integração
@@ -51,26 +56,22 @@ Para executar os testes de integração, você precisará carregar o banco de da
 
 ```bash
 $ docker compose -f docker-compose.test.yml up -d
-
-# Se o comando acima não funcionar, tente usar:
-
-$ docker-compose -f docker-compose.test.yml up -d
 ```
 
 Após o container iniciar e o banco de dados estiver em execução
 
 ```bash
 $ npm run test:int
+
+# Se caso for rodar dentro do container, utilize:
+
+$ docker compose exec serasa_brain_agriculture npm run test:int
 ```
 
 Assim que a execução for concluída, você pode encerrar o contêiner.
 
 ```bash
 $ docker compose -f docker-compose.test.yml down -v
-
-# Se o comando acima não funcionar, tente usar:
-
-$ docker-compose -f docker-compose.test.yml down -v
 ```
 
 #### Coverage
@@ -79,12 +80,20 @@ Siga as etapas do **"teste de integração"**, apenas substituindo o comando:
 
 ```bash
 $ npm run test:int
+
+# Se caso for rodar dentro do container, utilize:
+
+$ docker compose exec serasa_brain_agriculture npm run test:int
 ```
 
 por:
 
 ```bash
 $ npm run test:cov
+
+# Se caso for rodar dentro do container, utilize:
+
+$ docker compose exec serasa_brain_agriculture npm run test:cov
 ```
 
 ## Observação
