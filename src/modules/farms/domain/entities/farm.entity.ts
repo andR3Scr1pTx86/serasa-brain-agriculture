@@ -1,4 +1,5 @@
 import { v4 as uuiv4 } from 'uuid'
+import { BusinessRuleError } from '../../../../shared/domain/errors/domain-errors.js';
 
 export interface FarmProps {
     id?: string;
@@ -60,7 +61,7 @@ export class Farm {
         vegetation: number,
     ): void {
         if (arable + vegetation > total) {
-            throw new Error(
+            throw new BusinessRuleError(
                 'The sum of arable area and vegetation area cannot exceed the total farm area.',
             );
         }

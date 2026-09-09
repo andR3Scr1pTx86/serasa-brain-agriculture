@@ -2,6 +2,7 @@ import { ConflictException, Inject, Injectable, NotFoundException } from "@nestj
 import { FARMER_REPOSITORY_TOKEN, type IFarmerRepository } from "../../domain/repositories/farmer.repository.interface.js";
 import { UpdateFarmerInputDto, UpdateFarmerOutputDto } from "../dtos/update-farmer.dto.js";
 import { Document } from "../../domain/value-objects/document.vo.js";
+import { ConflictError, EntityNotFoundError } from "../../../../shared/domain/errors/domain-errors.js";
 
 @Injectable()
 export class UpdateFarmerUseCase {
@@ -14,7 +15,7 @@ export class UpdateFarmerUseCase {
         const farmer = await this.farmerRepository.findById(input.id);
 
         if (!farmer) {
-            throw new NotFoundException('Farmer not found');
+            throw new EntityNotFoundError('Farmer not found');
         }
 
         if (input.name) {
@@ -27,7 +28,7 @@ export class UpdateFarmerUseCase {
             const documentInUse = await this.farmerRepository.findByDocument(newDocumentVo);
 
             if (documentInUse && documentInUse.getId() !== farmer.getId()) {
-                throw new ConflictException('This Document is already in use by another Farmer');
+                throw new ConflictError('This Document is already in use by another Farmer');
             }
 
             farmer.updateDocument(newDocumentVo);

@@ -4,6 +4,7 @@ import { FARMER_REPOSITORY_TOKEN, type IFarmerRepository } from "../../domain/re
 import { CreateFarmerInputDto, CreateFarmerOutputDto } from "../dtos/create-farmer.dto.js";
 import { Document } from "../../domain/value-objects/document.vo.js";
 import { Farmer } from "../../domain/entities/farmer.entity.js";
+import { EntityNotFoundError } from "../../../../shared/domain/errors/domain-errors.js";
 
 @Injectable()
 export class CreateFarmerUseCase {
@@ -18,7 +19,7 @@ export class CreateFarmerUseCase {
         const farmerExists = await this.farmerRepository.findByDocument(documentVo);
 
         if (farmerExists) {
-            throw new ConflictException('Farmer already exists with this document');
+            throw new EntityNotFoundError('Farmer already exists with this document');
         }
 
         const farmer = Farmer.create({

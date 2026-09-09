@@ -1,8 +1,9 @@
-import { Inject, Injectable, NotFoundException } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 import { CROP_REPOSITORY_TOKEN, type ICropRepository } from "../../domain/repositories/crop.repository.interface.js";
 import { FARM_REPOSITORY_TOKEN, type IFarmRepository } from "../../../farms/domain/repositories/farm.repository.interface.js";
 import { CreateCropInputDto, CreateCropOutputDto } from "../dtos/create-crop.dto.js";
 import { Crop } from "../../domain/entities/crop.entity.js";
+import { EntityNotFoundError } from "../../../../shared/domain/errors/domain-errors.js";
 
 @Injectable()
 export class CreateCropUseCase {
@@ -17,7 +18,7 @@ export class CreateCropUseCase {
         const farmExists = await this.farmRepository.findById(input.farmId);
 
         if (!farmExists) {
-            throw new NotFoundException('Farm not found');
+            throw new EntityNotFoundError('Farm not found');
         }
 
         const crop = Crop.create({

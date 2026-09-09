@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
-import { FarmerOrmEntity } from "../../../../farmers/infraestructure/database/entities/farmer-orm.entity.js";
+import { FarmerOrmEntity } from "../../../../farmers/infrastructure/database/entities/farmer-orm.entity.js";
 
 @Entity('farms')
 export class FarmOrmEntity {

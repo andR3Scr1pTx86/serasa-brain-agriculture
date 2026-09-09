@@ -3,6 +3,7 @@ import { FARM_REPOSITORY_TOKEN, type IFarmRepository } from "../../domain/reposi
 import { FARMER_REPOSITORY_TOKEN, type IFarmerRepository } from "../../../farmers/domain/repositories/farmer.repository.interface.js";
 import { CreateFarmInputDto, CreateFarmOutputDto } from "../dtos/create-farm.dto.js";
 import { Farm } from "../../domain/entities/farm.entity.js";
+import { EntityNotFoundError } from "../../../../shared/domain/errors/domain-errors.js";
 
 @Injectable()
 export class CreateFarmUseCase {
@@ -17,7 +18,7 @@ export class CreateFarmUseCase {
         const farmerExists = await this.farmerRepository.findById(input.farmerId)
 
         if (!farmerExists) {
-            throw new NotFoundException('Farmer not found');
+            throw new EntityNotFoundError('Farmer not found');
         }
 
         const farm = Farm.create({

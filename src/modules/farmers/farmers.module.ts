@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { FarmerOrmEntity } from "./infraestructure/database/entities/farmer-orm.entity.js";
+import { FarmerOrmEntity } from "./infrastructure/database/entities/farmer-orm.entity.js";
 import { FarmerController } from "./interface/http/controllers/farmer.controller.js";
 import { CreateFarmerUseCase } from "./application/use-cases/create-farmer.use-case.js";
 import { FARMER_REPOSITORY_TOKEN } from "./domain/repositories/farmer.repository.interface.js";
-import { FarmerOrmRepository } from "./infraestructure/database/repositories/farmer-orm.repository.js";
+import { FarmerOrmRepository } from "./infrastructure/database/repositories/farmer-orm.repository.js";
 import { UpdateFarmerUseCase } from "./application/use-cases/update-farmer.use-case.js";
 import { DeleteFarmerUseCase } from "./application/use-cases/delete-farmer.use-case.js";
 

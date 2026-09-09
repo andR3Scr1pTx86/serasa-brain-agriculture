@@ -1,4 +1,5 @@
 import { cpf, cnpj } from 'cpf-cnpj-validator'
+import { BusinessRuleError } from '../../../../shared/domain/errors/domain-errors.js';
 
 export class Document {
     private readonly value: string;
@@ -16,7 +17,7 @@ export class Document {
             return new Document(cnpj.strip(document));
         }
 
-        throw new Error(`Invalid document: ${document}`);
+        throw new BusinessRuleError(`Invalid document: ${document}`);
     }
 
     public getValue(): string {
