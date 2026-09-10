@@ -110,4 +110,4 @@ NESTJS_OBSERVE_SERVICE_ID
 
 ## Observação
 
-Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de desenvolvedor backend (Node.js) na Serasa Experian (Brain-AG).
+Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de desenvolvedor Backend Node Sênior na Serasa Experian (Brain-AG).
