@@ -104,10 +104,12 @@ A aplicação suporta integração nativa com o [**NestJS Observe**](https://www
 Para ativar, tem que configurar as variáveis no `.env.dev`:
 
 ```env
-NESTJS_OBSERVE_APP_KEY
-NESTJS_OBSERVE_APP_SECRET
-NESTJS_OBSERVE_SERVICE_ID
+NESTJS_OBSERVE_APP_KEY=sua_app_key
+NESTJS_OBSERVE_APP_SECRET=sua_app_secret
+NESTJS_OBSERVE_SERVICE_ID=seu_service_id
 ```
+
+Caso não queira utilizar, somente não incluir as variáveis de ambiente acima.
 
 ## Observação
 

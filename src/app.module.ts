@@ -13,17 +13,21 @@ import { DashboardModule } from './modules/dashboard/dashboard.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
+const observeImports = process.env.NESTJS_OBSERVE_APP_KEY ? [
+  ObserveModule.forRootAsync({
+    imports: [ConfigModule],
+    inject: [ConfigService],
+    useFactory: (configService: ConfigService) => ({
+      appKey: configService.getOrThrow<string>('NESTJS_OBSERVE_APP_KEY'),
+      appSecret: configService.getOrThrow<string>('NESTJS_OBSERVE_APP_SECRET'),
+      serviceId: configService.getOrThrow<string>('NESTJS_OBSERVE_SERVICE_ID'),
+    }),
+  }),
+]
+  : [];
+
 @Module({
   imports: [
-    ObserveModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        appKey: configService.getOrThrow<string>('NESTJS_OBSERVE_APP_KEY'),
-        appSecret: configService.getOrThrow<string>('NESTJS_OBSERVE_APP_SECRET'),
-        serviceId: configService.getOrThrow<string>('NESTJS_OBSERVE_SERVICE_ID'),
-      }),
-    }),
     ConfigModule.forRoot({
       envFilePath: '.env.dev',
     }),
@@ -45,6 +49,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     FarmsModule,
     CropsModule,
     DashboardModule,
+    ...observeImports,
   ],
 })
 export class AppModule { }
