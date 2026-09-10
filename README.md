@@ -11,6 +11,7 @@ Este projeto foi desenvolvido em **NestJS** para gerenciar o cadastro de produto
 - **Containerização**: Docker
 - **Orquestração**: Docker Compose
 - **Documentação**: Swagger/OpenAPI
+- **Observabilidade**: NestJS Observe
 
 ## Como executar o projeto
 
