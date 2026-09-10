@@ -13,6 +13,10 @@ Este projeto foi desenvolvido em **NestJS** para gerenciar o cadastro de produto
 - **Documentação**: Swagger/OpenAPI
 - **Observabilidade**: NestJS Observe
 
+## Links de Produção
+
+* **Documentação Interativa (Swagger)**: `http://3.143.141.179:3000/docs`
+
 ## Como executar o projeto
 
 Siga as etapas abaixo para configurar e executar a aplicação localmente.
