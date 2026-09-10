@@ -96,6 +96,18 @@ $ npm run test:cov
 $ docker compose exec serasa_brain_agriculture npm run test:cov
 ```
 
+## Observabilidade e Monitoramento
+
+A aplicação suporta integração nativa com o [**NestJS Observe**](https://www.observe.nestjs.com/) para fazer tracing e obter métricas de performance.
+
+Para ativar, tem que configurar as variáveis no `.env.dev`:
+
+```env
+NESTJS_OBSERVE_APP_KEY
+NESTJS_OBSERVE_APP_SECRET
+NESTJS_OBSERVE_SERVICE_ID
+```
+
 ## Observação
 
 Este projeto foi desenvolvido como parte de um desafio técnico para uma vaga de desenvolvedor backend (Node.js) na Serasa Experian (Brain-AG).
