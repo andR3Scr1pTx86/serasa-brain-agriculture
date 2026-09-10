@@ -69,7 +69,7 @@ $ npm run test:int
 $ docker compose exec serasa_brain_agriculture npm run test:int
 ```
 
-Assim que a execução for concluída, você pode encerrar o contêiner.
+Assim que a execução for concluída, você pode encerrar o container.
 
 ```bash
 $ docker compose -f docker-compose.test.yml down -v
